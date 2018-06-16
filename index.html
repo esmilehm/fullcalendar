@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>スクレイピングでカレンダーにマッピング</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="id_viewport" content="width=device-width">
+<link href='./fullcalendar-3.9.0/fullcalendar.min.css' rel='stylesheet' />
+<link href='./fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<script src='./fullcalendar-3.9.0/lib/moment.min.js'></script>
+<script src='./fullcalendar-3.9.0/lib/jquery.min.js'></script>
+<script src='./fullcalendar-3.9.0/fullcalendar.min.js'></script>
+<script src='./fullcalendar-3.9.0/locale/ja.js'></script>
+<script>
+	$(document).ready(function(){
+		<!--$('#calendar').fullCalendar();-->
+		$('#calendar').fullCalendar({
+			"events":[
+			{"start" : "2018-04-29" , "title" : "昭和の日"},
+			{"start" : "2018-05-03" , "title" : "憲法記念日"},
+			{"start" : "2018-05-04" , "title" : "みどりの日"},
+			{"start" : "2018-05-05" , "title" : "こどもの日"},			
+			]
+		});
+		});
+</script>
+<style>
+	.fc-sun,.fc-sat{
+		color:#FF0000;
+	}
+</style>
+</head>
+<body>
+	<div id='calendar'>
+	</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>スクレイピングでカレンダーにマッピング</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="id_viewport" content="width=device-width">
+<link href='./fullcalendar-3.9.0/fullcalendar.min.css' rel='stylesheet' />
+<link href='./fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<script src='./fullcalendar-3.9.0/lib/moment.min.js'></script>
+<script src='./fullcalendar-3.9.0/lib/jquery.min.js'></script>
+<script src='./fullcalendar-3.9.0/fullcalendar.min.js'></script>
+<script src='./fullcalendar-3.9.0/locale/ja.js'></script>
+<script src="./events.js"></script>
+<script>
+	$(document).ready(function(){
+	var queryRaw = window.location.search;
+	var query = queryRaw ? queryRaw.slice(1) : null;
+	
+	promiseEventsArray(query).then(function(eventsArray){
+		$('#calendar').empty();
+		$('#calendar').fullCalendar({
+			"events": eventsArray
+			});
+		});
+	}
+</script>
+<style>
+	.fc-sun,.fc-sat{
+		color:#FF0000;
+	}
+</style>
+</head>
+<body>
+	<div id='calendar'>
+	<i class="fa fa-spinner fa-spin fa-3x">
+	</i>
+	loading....
+	</div>
+</body>
+</html>
